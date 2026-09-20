@@ -1,0 +1,42 @@
+{
+  "domain": "navigation-standard-gap",
+  "version": 1,
+  "sample_id": "public-sample-007",
+  "actors": [
+    "学员",
+    "授课专家",
+    "主办机构",
+    "成员国主管部门"
+  ],
+  "facts": [
+    "培训由交通运输部海事局与国际航标组织联合主办",
+    "项目新增风险管理专项培训",
+    "历史学员来自四十多个国家和地区"
+  ],
+  "constraints": [
+    "国际条款映射",
+    "本国实施自评",
+    "同行复核",
+    "改进行动验证"
+  ],
+  "records": [
+    {
+      "id": "navigation-standard-gap-source",
+      "kind": "source",
+      "label": "培训由交通运输部海事局与国际航标组织联合主办",
+      "status": "active"
+    },
+    {
+      "id": "navigation-standard-gap-review",
+      "kind": "review",
+      "label": "国际条款映射",
+      "status": "pending"
+    },
+    {
+      "id": "navigation-standard-gap-history",
+      "kind": "history",
+      "label": "历史学员来自四十多个国家和地区",
+      "status": "historical"
+    }
+  ]
+}
