@@ -1,0 +1,33 @@
+[
+  {
+    "scenario_id": "scenario-001",
+    "title": "浓雾夜航期间进口浮标失效",
+    "clause_id": "IALA-G1151-5.3",
+    "hazard": "导助航中断导致船舶偏航搁浅",
+    "standard_terms": ["风险等级", "剩余风险", "临时警戒", "恢复时限"],
+    "required_capability": "4 小时内完成临时浮标布设并发布航行警告",
+    "expected_process": [
+      "确认失效并定级",
+      "启动临时警戒",
+      "布设临时标志",
+      "发布航行警告",
+      "恢复后复盘"
+    ],
+    "required_equipment": ["快速布设艇", "备用灯浮标", "AIS 虚拟航标"]
+  },
+  {
+    "scenario_id": "scenario-002",
+    "title": "关键航段 AIS 基站告警风暴",
+    "clause_id": "IALA-G1151-4.1",
+    "hazard": "虚假目标干扰交通组织",
+    "standard_terms": ["告警分级", "误报率", "抑制策略"],
+    "required_capability": "30 分钟内完成告警分级并执行抑制策略",
+    "expected_process": [
+      "告警分级",
+      "隔离异常基站",
+      "执行抑制策略",
+      "通报交管中心"
+    ],
+    "required_equipment": ["远程监控平台", "基站远程复位手段"]
+  }
+]

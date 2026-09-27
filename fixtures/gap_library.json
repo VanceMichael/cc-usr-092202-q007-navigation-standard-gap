@@ -1,0 +1,696 @@
+{
+  "domain": "navigation-standard-gap",
+  "version": 2,
+  "organizations": [
+    {
+      "org_id": "org-alpha",
+      "name": "甲国 A 港航标处",
+      "country_code": "CN"
+    },
+    {
+      "org_id": "org-beta",
+      "name": "甲国 B 海区航标站",
+      "country_code": "CN"
+    },
+    {
+      "org_id": "org-gamma",
+      "name": "乙国 C 港务航标局",
+      "country_code": "XY"
+    },
+    {
+      "org_id": "org-delta",
+      "name": "乙国 D 湾航标队",
+      "country_code": "XY"
+    }
+  ],
+  "clauses": [
+    {
+      "clause_id": "IALA-G1151-3.2",
+      "standard": "IALA G1151",
+      "title": "风险等级与剩余风险术语",
+      "source_text": "The authority shall use residual risk levels consistently in notification and escalation.",
+      "official_translation": {
+        "current_version": "V2",
+        "versions": [
+          {
+            "version": "V1",
+            "date": "2022-06-01",
+            "text": "主管机关应在通报与升级中统一使用风险等级术语。",
+            "errata": "初版官方译文，无勘误"
+          },
+          {
+            "version": "V2",
+            "date": "2026-03-01",
+            "text": "主管机关应在通报与升级中统一使用剩余风险等级术语。",
+            "errata": "勘误：将“风险等级”明确为“剩余风险等级”，避免与初始风险混用"
+          }
+        ]
+      },
+      "national_rule_ids": []
+    },
+    {
+      "clause_id": "IALA-G1151-4.1",
+      "standard": "IALA G1151",
+      "title": "告警分级与抑制",
+      "source_text": "Alerts shall be graded before suppression; misreport rate shall be monitored.",
+      "official_translation": {
+        "current_version": "V1",
+        "versions": [
+          {
+            "version": "V1",
+            "date": "2022-06-01",
+            "text": "告警抑制前应先分级，并监测误报率。",
+            "errata": "初版官方译文，无勘误"
+          }
+        ]
+      },
+      "national_rule_ids": [
+        "CN-海标-2024-07"
+      ]
+    },
+    {
+      "clause_id": "IALA-G1151-5.3",
+      "standard": "IALA G1151",
+      "title": "导助航应急恢复时限",
+      "source_text": "Temporary aids shall be deployed and navigational warnings issued within four hours.",
+      "official_translation": {
+        "current_version": "V2",
+        "versions": [
+          {
+            "version": "V2",
+            "date": "2023-09-01",
+            "text": "应在四小时内布设临时标志并发布航行警告。",
+            "errata": "初版官方译文，无勘误"
+          }
+        ]
+      },
+      "national_rule_ids": []
+    }
+  ],
+  "gaps": [
+    {
+      "gap_id": "gap-tm-course-risk-101-IALA-G1151-3.2-org-alpha",
+      "clause_id": "IALA-G1151-3.2",
+      "reporter_org": "org-alpha",
+      "country_code": "CN",
+      "category": "training_material",
+      "title": "课程《航标风险管理基础》译文版本落后",
+      "description": "课程 course-risk-101（2023版）依据译文 V1 编写，现行官方译文已更新至 V2；旧版资料不改写，需按新译文组织复训。",
+      "service_impact": "术语讲解与现行标准不一致，延续培训后的操作分歧",
+      "sensitive": false,
+      "status": "open",
+      "evidence": [],
+      "peer_reviews": [],
+      "history": [
+        {
+          "date": "2026-04-01",
+          "actor": "org-alpha",
+          "action": "reported",
+          "detail": "差距登记"
+        },
+        {
+          "date": "2026-08-01",
+          "actor": "joint-project-office",
+          "action": "rule_update_evaluated",
+          "detail": "规则 CN-海标-2024-07 更新：复评结论未确认符合"
+        }
+      ],
+      "training_material": {
+        "course_id": "course-risk-101",
+        "edition": "2023版",
+        "translation_version": "V1",
+        "retrain_required": true,
+        "material_content_immutable": true
+      },
+      "national_rule_id": "CN-海标-2024-07"
+    },
+    {
+      "gap_id": "gap-tm-course-risk-101-IALA-G1151-3.2-org-beta",
+      "clause_id": "IALA-G1151-3.2",
+      "reporter_org": "org-beta",
+      "country_code": "CN",
+      "category": "training_material",
+      "title": "课程《航标风险管理基础》译文版本落后",
+      "description": "课程 course-risk-101（2023版）依据译文 V1 编写，现行官方译文已更新至 V2；旧版资料不改写，需按新译文组织复训。",
+      "service_impact": "术语讲解与现行标准不一致，延续培训后的操作分歧",
+      "sensitive": false,
+      "status": "open",
+      "evidence": [],
+      "peer_reviews": [],
+      "history": [
+        {
+          "date": "2026-04-01",
+          "actor": "org-beta",
+          "action": "reported",
+          "detail": "差距登记"
+        }
+      ],
+      "training_material": {
+        "course_id": "course-risk-101",
+        "edition": "2023版",
+        "translation_version": "V1",
+        "retrain_required": true,
+        "material_content_immutable": true
+      }
+    },
+    {
+      "gap_id": "gap-tm-course-risk-101-IALA-G1151-3.2-org-gamma",
+      "clause_id": "IALA-G1151-3.2",
+      "reporter_org": "org-gamma",
+      "country_code": "XY",
+      "category": "training_material",
+      "title": "课程《航标风险管理基础》译文版本落后",
+      "description": "课程 course-risk-101（2023版）依据译文 V1 编写，现行官方译文已更新至 V2；旧版资料不改写，需按新译文组织复训。",
+      "service_impact": "术语讲解与现行标准不一致，延续培训后的操作分歧",
+      "sensitive": false,
+      "status": "open",
+      "evidence": [],
+      "peer_reviews": [],
+      "history": [
+        {
+          "date": "2026-04-01",
+          "actor": "org-gamma",
+          "action": "reported",
+          "detail": "差距登记"
+        }
+      ],
+      "training_material": {
+        "course_id": "course-risk-101",
+        "edition": "2023版",
+        "translation_version": "V1",
+        "retrain_required": true,
+        "material_content_immutable": true
+      }
+    },
+    {
+      "gap_id": "gap-scenario-001-org-gamma-terminology",
+      "clause_id": "IALA-G1151-5.3",
+      "reporter_org": "org-gamma",
+      "country_code": "XY",
+      "category": "terminology",
+      "title": "风险术语与标准不一致：浓雾夜航期间进口浮标失效",
+      "description": "对照风险场景 scenario-001 自评发现：现场通报仍使用“风险概率”，未使用“剩余风险等级”",
+      "service_impact": "跨国联合演练中升级判定口径不一致，临时警戒启动偏晚",
+      "sensitive": false,
+      "status": "closed",
+      "evidence": [
+        {
+          "type": "document",
+          "ref": "SOP-GAMMA-2026-018",
+          "summary": "修订后的通报模板与复训签到记录",
+          "added_by": "org-gamma",
+          "date": "2026-06-21"
+        }
+      ],
+      "peer_reviews": [
+        {
+          "reviewer_org": "org-alpha",
+          "date": "2026-05-20",
+          "verdict": "agree",
+          "comments": "确认术语差异影响联合演练升级判定，建议同步修订通报模板"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-05-10",
+          "actor": "org-gamma",
+          "action": "reported",
+          "detail": "差距登记"
+        },
+        {
+          "date": "2026-05-15",
+          "actor": "org-gamma",
+          "action": "self_assessment",
+          "detail": "自评结论：不符合"
+        },
+        {
+          "date": "2026-05-20",
+          "actor": "org-alpha",
+          "action": "peer_review",
+          "detail": "同行复核结论：agree"
+        },
+        {
+          "date": "2026-05-25",
+          "actor": "org-gamma",
+          "action": "action_planned",
+          "detail": "期限 2026-07-31"
+        },
+        {
+          "date": "2026-07-25",
+          "actor": "联合项目办公室 王专员",
+          "action": "action_extended",
+          "detail": "延期至 2026-08-31：复训需避让当地伏休监管任务期"
+        },
+        {
+          "date": "2026-06-01",
+          "actor": "org-gamma",
+          "action": "action_started",
+          "detail": ""
+        },
+        {
+          "date": "2026-06-20",
+          "actor": "org-gamma",
+          "action": "action_completed",
+          "detail": "新通报模板发布，两轮专项复训共 38 人完成"
+        },
+        {
+          "date": "2026-06-21",
+          "actor": "org-gamma",
+          "action": "evidence_added",
+          "detail": "补充证据：document"
+        },
+        {
+          "date": "2026-06-25",
+          "actor": "org-gamma",
+          "action": "drill_recorded",
+          "detail": "演练 drill-2026-06-gamma 结论：pass"
+        },
+        {
+          "date": "2026-06-26",
+          "actor": "joint-project-office",
+          "action": "closed",
+          "detail": "差距经演练核对后关闭"
+        }
+      ],
+      "term_diff": {
+        "current": "风险概率",
+        "standard": "剩余风险等级"
+      },
+      "self_assessment": {
+        "org_id": "org-gamma",
+        "date": "2026-05-15",
+        "capability_level": "部分具备",
+        "standard_requirement": "统一使用剩余风险等级",
+        "conformance": "不符合",
+        "notes": "旧版课程用词尚未更新"
+      },
+      "action": {
+        "description": "修订现场通报模板并组织术语专项复训",
+        "owner_org": "org-gamma",
+        "due_date": "2026-07-31",
+        "extensions": [
+          {
+            "new_due_date": "2026-08-31",
+            "reason": "复训需避让当地伏休监管任务期",
+            "approver": "联合项目办公室 王专员",
+            "date": "2026-07-25"
+          }
+        ],
+        "completed_date": "2026-06-20",
+        "resolution_summary": "新通报模板发布，两轮专项复训共 38 人完成"
+      },
+      "drill_id": "drill-2026-06-gamma",
+      "closed": {
+        "by": "joint-project-office",
+        "date": "2026-06-26"
+      }
+    },
+    {
+      "gap_id": "gap-scenario-001-org-gamma-process",
+      "clause_id": "IALA-G1151-5.3",
+      "reporter_org": "org-gamma",
+      "country_code": "XY",
+      "category": "process",
+      "title": "处置流程与标准不一致：浓雾夜航期间进口浮标失效",
+      "description": "对照风险场景 scenario-001 自评发现：处置流程缺少“临时警戒”步骤",
+      "service_impact": "标志恢复前缺乏过渡性交通组织措施",
+      "sensitive": false,
+      "status": "self_assessed",
+      "evidence": [],
+      "peer_reviews": [],
+      "history": [
+        {
+          "date": "2026-05-10",
+          "actor": "org-gamma",
+          "action": "reported",
+          "detail": "差距登记"
+        },
+        {
+          "date": "2026-05-15",
+          "actor": "org-gamma",
+          "action": "self_assessment",
+          "detail": "自评结论：不符合"
+        }
+      ],
+      "current_process": "确认失效 → 布设标志 → 发布警告 → 复盘",
+      "self_assessment": {
+        "org_id": "org-gamma",
+        "date": "2026-05-15",
+        "capability_level": "部分具备",
+        "standard_requirement": "先临时警戒再恢复标志",
+        "conformance": "不符合",
+        "notes": "拟结合处置手册修订补充该步骤"
+      }
+    },
+    {
+      "gap_id": "gap-scenario-001-org-gamma-equipment",
+      "clause_id": "IALA-G1151-5.3",
+      "reporter_org": "org-gamma",
+      "country_code": "XY",
+      "category": "equipment",
+      "title": "设备能力不满足场景要求：浓雾夜航期间进口浮标失效",
+      "description": "对照风险场景 scenario-001 自评发现：无快速布设艇与备用灯浮，实际恢复约 12 小时",
+      "service_impact": "浓雾夜航时导助航中断窗口远超标准时限",
+      "sensitive": true,
+      "status": "in_progress",
+      "evidence": [
+        {
+          "type": "document",
+          "ref": "BUDGET-XY-2026-221",
+          "summary": "快速布设艇采购立项批复（示例编号）",
+          "added_by": "org-gamma",
+          "date": "2026-07-10"
+        }
+      ],
+      "peer_reviews": [
+        {
+          "reviewer_org": "org-delta",
+          "date": "2026-05-22",
+          "verdict": "agree",
+          "comments": "确认设备能力差距属实；敏感设施细节按乙国隔离，未在复核意见中转引"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-05-10",
+          "actor": "org-gamma",
+          "action": "reported",
+          "detail": "差距登记"
+        },
+        {
+          "date": "2026-05-12",
+          "actor": "乙国主管部门 李司长",
+          "action": "exemption_granted",
+          "detail": "豁免至 2026-12-31"
+        },
+        {
+          "date": "2026-05-15",
+          "actor": "org-gamma",
+          "action": "self_assessment",
+          "detail": "自评结论：不符合"
+        },
+        {
+          "date": "2026-05-22",
+          "actor": "org-delta",
+          "action": "peer_review",
+          "detail": "同行复核结论：agree"
+        },
+        {
+          "date": "2026-05-28",
+          "actor": "org-gamma",
+          "action": "action_planned",
+          "detail": "期限 2027-03-31"
+        },
+        {
+          "date": "2026-08-01",
+          "actor": "org-gamma",
+          "action": "action_started",
+          "detail": ""
+        },
+        {
+          "date": "2026-07-10",
+          "actor": "org-gamma",
+          "action": "evidence_added",
+          "detail": "补充证据：document"
+        }
+      ],
+      "facility": {
+        "site_name": "C 港进口航道 3 号灯浮（示例位置）",
+        "vulnerability": "仅单船待命，夜间出动准备时间约 3 小时"
+      },
+      "equipment_limit": {
+        "required": "4 小时内恢复",
+        "actual": "约 12 小时",
+        "missing": [
+          "快速布设艇",
+          "AIS 虚拟航标授权"
+        ]
+      },
+      "exemption": {
+        "approver": "乙国主管部门 李司长",
+        "granted_on": "2026-05-12",
+        "expiry": "2026-12-31",
+        "scope": "仅在快速布设艇列编前对 C 港进口航道适用，期间执行加强瞭望与拖轮待命",
+        "sequence": 1,
+        "status": "active"
+      },
+      "self_assessment": {
+        "org_id": "org-gamma",
+        "date": "2026-05-15",
+        "capability_level": "不具备",
+        "standard_requirement": "4 小时内恢复",
+        "conformance": "不符合",
+        "notes": "已申请预算采购快速布设艇"
+      },
+      "action": {
+        "description": "采购快速布设艇并取得 AIS 虚拟航标授权",
+        "owner_org": "org-gamma",
+        "due_date": "2027-03-31",
+        "extensions": []
+      }
+    },
+    {
+      "gap_id": "gap-scenario-002-org-alpha-process",
+      "clause_id": "IALA-G1151-4.1",
+      "reporter_org": "org-alpha",
+      "country_code": "CN",
+      "category": "process",
+      "title": "处置流程与标准不一致：关键航段 AIS 基站告警风暴",
+      "description": "对照风险场景 scenario-002 自评发现：现场先抑制后分级，顺序与标准相反",
+      "service_impact": "抑制缺少分级依据，可能掩盖真实告警",
+      "sensitive": false,
+      "status": "closed",
+      "evidence": [
+        {
+          "type": "document",
+          "ref": "SOP-ALPHA-2026-031",
+          "summary": "处置单 V3 与规程修订页",
+          "added_by": "org-alpha",
+          "date": "2026-06-25"
+        }
+      ],
+      "peer_reviews": [
+        {
+          "reviewer_org": "org-beta",
+          "date": "2026-05-18",
+          "verdict": "agree",
+          "comments": "远程监控平台支持先分级，问题在现场处置单顺序"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-05-10",
+          "actor": "org-alpha",
+          "action": "reported",
+          "detail": "差距登记"
+        },
+        {
+          "date": "2026-05-12",
+          "actor": "org-alpha",
+          "action": "self_assessment",
+          "detail": "自评结论：部分符合"
+        },
+        {
+          "date": "2026-05-18",
+          "actor": "org-beta",
+          "action": "peer_review",
+          "detail": "同行复核结论：agree"
+        },
+        {
+          "date": "2026-05-22",
+          "actor": "org-alpha",
+          "action": "action_planned",
+          "detail": "期限 2026-06-30"
+        },
+        {
+          "date": "2026-06-02",
+          "actor": "org-alpha",
+          "action": "action_started",
+          "detail": ""
+        },
+        {
+          "date": "2026-06-25",
+          "actor": "org-alpha",
+          "action": "action_completed",
+          "detail": "处置单 V3 发布，值班规程同步更新"
+        },
+        {
+          "date": "2026-06-25",
+          "actor": "org-alpha",
+          "action": "evidence_added",
+          "detail": "补充证据：document"
+        },
+        {
+          "date": "2026-07-18",
+          "actor": "org-alpha",
+          "action": "drill_recorded",
+          "detail": "演练 drill-2026-07-alpha 结论：pass"
+        },
+        {
+          "date": "2026-08-01",
+          "actor": "joint-project-office",
+          "action": "rule_update_evaluated",
+          "detail": "规则 CN-海标-2024-07 更新：复评、证据与演练均确认解决"
+        },
+        {
+          "date": "2026-08-01",
+          "actor": "joint-project-office",
+          "action": "closed",
+          "detail": "规则更新后经复评与演练确认解决，随 rule-update-CN-2026-08 关闭"
+        }
+      ],
+      "current_process": "发现告警风暴 → 直接抑制 → 事后分级",
+      "national_rule_id": "CN-海标-2024-07",
+      "self_assessment": {
+        "org_id": "org-alpha",
+        "date": "2026-05-12",
+        "capability_level": "具备能力，流程顺序错误",
+        "standard_requirement": "先分级后抑制",
+        "conformance": "部分符合",
+        "notes": ""
+      },
+      "action": {
+        "description": "修订处置单与值班规程，落实先分级后抑制",
+        "owner_org": "org-alpha",
+        "due_date": "2026-06-30",
+        "extensions": [],
+        "completed_date": "2026-06-25",
+        "resolution_summary": "处置单 V3 发布，值班规程同步更新"
+      },
+      "drill_id": "drill-2026-07-alpha",
+      "closed": {
+        "by": "joint-project-office",
+        "date": "2026-08-01",
+        "rule_update": "rule-update-CN-2026-08"
+      }
+    }
+  ],
+  "courses": [
+    {
+      "course_id": "course-risk-101",
+      "title": "航标风险管理基础",
+      "edition": "2023版",
+      "material_immutable": true,
+      "adopting_orgs": [
+        "org-alpha",
+        "org-beta",
+        "org-gamma"
+      ],
+      "clause_refs": [
+        {
+          "clause_id": "IALA-G1151-3.2",
+          "translation_version": "V1"
+        },
+        {
+          "clause_id": "IALA-G1151-4.1",
+          "translation_version": "V1"
+        }
+      ]
+    },
+    {
+      "course_id": "course-equip-204",
+      "title": "AIS 助航标志与应急布设",
+      "edition": "2024版",
+      "material_immutable": true,
+      "adopting_orgs": [
+        "org-alpha"
+      ],
+      "clause_refs": [
+        {
+          "clause_id": "IALA-G1151-5.3",
+          "translation_version": "V2"
+        }
+      ]
+    }
+  ],
+  "risk_scenarios": [
+    {
+      "scenario_id": "scenario-001",
+      "title": "浓雾夜航期间进口浮标失效",
+      "clause_id": "IALA-G1151-5.3",
+      "hazard": "导助航中断导致船舶偏航搁浅",
+      "standard_terms": [
+        "风险等级",
+        "剩余风险",
+        "临时警戒",
+        "恢复时限"
+      ],
+      "required_capability": "4 小时内完成临时浮标布设并发布航行警告",
+      "expected_process": [
+        "确认失效并定级",
+        "启动临时警戒",
+        "布设临时标志",
+        "发布航行警告",
+        "恢复后复盘"
+      ],
+      "required_equipment": [
+        "快速布设艇",
+        "备用灯浮标",
+        "AIS 虚拟航标"
+      ]
+    },
+    {
+      "scenario_id": "scenario-002",
+      "title": "关键航段 AIS 基站告警风暴",
+      "clause_id": "IALA-G1151-4.1",
+      "hazard": "虚假目标干扰交通组织",
+      "standard_terms": [
+        "告警分级",
+        "误报率",
+        "抑制策略"
+      ],
+      "required_capability": "30 分钟内完成告警分级并执行抑制策略",
+      "expected_process": [
+        "告警分级",
+        "隔离异常基站",
+        "执行抑制策略",
+        "通报交管中心"
+      ],
+      "required_equipment": [
+        "远程监控平台",
+        "基站远程复位手段"
+      ]
+    }
+  ],
+  "rule_updates": [
+    {
+      "update_id": "rule-update-CN-2026-08",
+      "national_rule_id": "CN-海标-2024-07",
+      "country_code": "CN",
+      "effective_date": "2026-08-01",
+      "closed_gaps": [
+        "gap-scenario-002-org-alpha-process"
+      ],
+      "remaining_gaps": [
+        {
+          "gap_id": "gap-tm-course-risk-101-IALA-G1151-3.2-org-alpha",
+          "reason": "复评结论未确认符合"
+        }
+      ]
+    }
+  ],
+  "drills": [
+    {
+      "drill_id": "drill-2026-06-gamma",
+      "org_id": "org-gamma",
+      "date": "2026-06-25",
+      "scope": [
+        "gap-scenario-001-org-gamma-terminology"
+      ],
+      "result": "pass",
+      "evidence_ref": "DRILL-RPT-2026-06-GAMMA",
+      "scenario_ref": "scenario-001"
+    },
+    {
+      "drill_id": "drill-2026-07-alpha",
+      "org_id": "org-alpha",
+      "date": "2026-07-18",
+      "scope": [
+        "gap-scenario-002-org-alpha-process"
+      ],
+      "result": "pass",
+      "evidence_ref": "DRILL-RPT-2026-07-ALPHA",
+      "scenario_ref": "scenario-002"
+    }
+  ]
+}

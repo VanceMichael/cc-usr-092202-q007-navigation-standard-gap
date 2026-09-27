@@ -1,0 +1,30 @@
+[
+  {
+    "course_id": "course-risk-101",
+    "title": "航标风险管理基础",
+    "edition": "2023版",
+    "adopting_orgs": ["org-alpha", "org-beta", "org-gamma"],
+    "clause_refs": [
+      {
+        "clause_id": "IALA-G1151-3.2",
+        "translation_version": "V1"
+      },
+      {
+        "clause_id": "IALA-G1151-4.1",
+        "translation_version": "V1"
+      }
+    ]
+  },
+  {
+    "course_id": "course-equip-204",
+    "title": "AIS 助航标志与应急布设",
+    "edition": "2024版",
+    "adopting_orgs": ["org-alpha"],
+    "clause_refs": [
+      {
+        "clause_id": "IALA-G1151-5.3",
+        "translation_version": "V2"
+      }
+    ]
+  }
+]
