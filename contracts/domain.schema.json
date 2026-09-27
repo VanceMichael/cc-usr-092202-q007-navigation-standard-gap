@@ -1,86 +1,388 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "航标标准落地差距库领域资料",
+  "title": "航标标准落地差距库领域资料（v2）",
+  "description": "国际航标标准条款、官方译文与勘误、本国规范、成员机构自评差距、同行复核、证据、改进行动、现场豁免、演练与国家规则更新之间的逐项对应。样例数据全部为虚构内容。",
   "type": "object",
   "required": [
     "domain",
     "version",
     "sample_id",
+    "as_of",
     "actors",
     "facts",
     "constraints",
-    "records"
+    "imports",
+    "standards_clauses",
+    "translations",
+    "translation_corrigenda",
+    "national_rules",
+    "courses",
+    "risk_scenarios",
+    "agencies",
+    "facilities",
+    "gaps",
+    "reviews",
+    "evidence",
+    "actions",
+    "action_extensions",
+    "exemptions",
+    "drills",
+    "rule_updates"
   ],
   "properties": {
-    "domain": {
-      "type": "string",
-      "const": "navigation-standard-gap"
-    },
-    "version": {
-      "type": "integer",
-      "minimum": 1
-    },
-    "sample_id": {
-      "type": "string",
-      "minLength": 1
-    },
-    "actors": {
-      "type": "array",
-      "minItems": 2,
-      "items": {
-        "type": "string"
-      }
-    },
-    "facts": {
-      "type": "array",
-      "minItems": 2,
-      "items": {
-        "type": "string"
-      }
-    },
-    "constraints": {
-      "type": "array",
-      "minItems": 2,
-      "items": {
-        "type": "string"
-      }
-    },
-    "records": {
-      "type": "array",
-      "minItems": 2,
-      "items": {
-        "type": "object",
-        "required": [
-          "id",
-          "kind",
-          "label",
-          "status"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "minLength": 1
-          },
-          "kind": {
-            "type": "string",
-            "minLength": 1
-          },
-          "label": {
-            "type": "string",
-            "minLength": 1
-          },
-          "status": {
-            "type": "string",
-            "enum": [
-              "active",
-              "pending",
-              "historical"
-            ]
-          }
-        },
-        "additionalProperties": false
-      }
-    }
+    "domain": { "type": "string", "const": "navigation-standard-gap" },
+    "version": { "type": "integer", "const": 2 },
+    "sample_id": { "type": "string", "minLength": 1 },
+    "as_of": { "$ref": "#/$defs/date" },
+    "actors": { "type": "array", "minItems": 2, "items": { "type": "string" } },
+    "facts": { "type": "array", "minItems": 2, "items": { "type": "string" } },
+    "constraints": { "type": "array", "minItems": 2, "items": { "type": "string" } },
+
+    "imports": { "type": "array", "items": { "$ref": "#/$defs/import_batch" } },
+    "standards_clauses": { "type": "array", "items": { "$ref": "#/$defs/clause" } },
+    "translations": { "type": "array", "items": { "$ref": "#/$defs/translation" } },
+    "translation_corrigenda": { "type": "array", "items": { "$ref": "#/$defs/corrigendum" } },
+    "national_rules": { "type": "array", "items": { "$ref": "#/$defs/national_rule" } },
+    "courses": { "type": "array", "items": { "$ref": "#/$defs/course" } },
+    "risk_scenarios": { "type": "array", "items": { "$ref": "#/$defs/risk_scenario" } },
+    "agencies": { "type": "array", "items": { "$ref": "#/$defs/agency" } },
+    "facilities": { "type": "array", "items": { "$ref": "#/$defs/facility" } },
+    "gaps": { "type": "array", "items": { "$ref": "#/$defs/gap" } },
+    "reviews": { "type": "array", "items": { "$ref": "#/$defs/review" } },
+    "evidence": { "type": "array", "items": { "$ref": "#/$defs/evidence" } },
+    "actions": { "type": "array", "items": { "$ref": "#/$defs/action" } },
+    "action_extensions": { "type": "array", "items": { "$ref": "#/$defs/action_extension" } },
+    "exemptions": { "type": "array", "items": { "$ref": "#/$defs/exemption" } },
+    "drills": { "type": "array", "items": { "$ref": "#/$defs/drill" } },
+    "rule_updates": { "type": "array", "items": { "$ref": "#/$defs/rule_update" } }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+
+  "$defs": {
+    "date": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "description": "ISO 日期"
+    },
+    "id": { "type": "string", "minLength": 1 },
+
+    "import_batch": {
+      "type": "object",
+      "required": ["id", "imported_on", "source", "course_ids", "scenario_ids"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "imported_on": { "$ref": "#/$defs/date" },
+        "source": { "type": "string", "minLength": 1 },
+        "course_ids": { "type": "array", "items": { "$ref": "#/$defs/id" } },
+        "scenario_ids": { "type": "array", "items": { "$ref": "#/$defs/id" } },
+        "note": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+
+    "clause": {
+      "type": "object",
+      "required": ["id", "standard", "number", "title", "text_summary", "consistency_aspect", "status"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "standard": { "type": "string", "minLength": 1, "description": "标准/建议书编号（样例为虚构编号）" },
+        "number": { "type": "string", "minLength": 1 },
+        "title": { "type": "string", "minLength": 1 },
+        "text_summary": { "type": "string", "minLength": 1 },
+        "consistency_aspect": {
+          "type": "string",
+          "enum": ["risk_terminology", "equipment_capability", "response_process"]
+        },
+        "status": { "type": "string", "enum": ["current", "superseded"] }
+      },
+      "additionalProperties": false
+    },
+
+    "translation": {
+      "type": "object",
+      "required": ["id", "clause_id", "language", "version", "published_on", "text", "status"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "clause_id": { "$ref": "#/$defs/id" },
+        "language": { "type": "string", "const": "zh-CN" },
+        "version": { "type": "integer", "minimum": 1 },
+        "published_on": { "$ref": "#/$defs/date" },
+        "text": { "type": "string", "minLength": 1 },
+        "status": { "type": "string", "enum": ["current", "superseded"] }
+      },
+      "additionalProperties": false
+    },
+
+    "corrigendum": {
+      "type": "object",
+      "description": "官方译文勘误。勘误只追加、不回溯改写已冻结的旧版培训资料。",
+      "required": ["id", "translation_id", "published_on", "severity", "original_reading", "corrected_reading"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "translation_id": { "$ref": "#/$defs/id" },
+        "published_on": { "$ref": "#/$defs/date" },
+        "severity": { "type": "string", "enum": ["terminology", "meaning", "editorial"] },
+        "original_reading": { "type": "string", "minLength": 1 },
+        "corrected_reading": { "type": "string", "minLength": 1 },
+        "note": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+
+    "national_rule": {
+      "type": "object",
+      "required": ["id", "country_code", "title", "clause_ids", "effective_on", "status"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "country_code": { "$ref": "#/$defs/id" },
+        "title": { "type": "string", "minLength": 1 },
+        "clause_ids": { "type": "array", "items": { "$ref": "#/$defs/id" } },
+        "effective_on": { "$ref": "#/$defs/date" },
+        "repealed_on": { "$ref": "#/$defs/date" },
+        "status": { "type": "string", "enum": ["in_force", "repealed"] },
+        "note": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+
+    "course": {
+      "type": "object",
+      "description": "已导入课程。frozen=true 表示该版本资料已冻结快照，译文勘误不回溯改写。",
+      "required": ["id", "code", "title", "version", "published_on", "frozen", "based_on_translation_ids"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "code": { "type": "string", "minLength": 1 },
+        "title": { "type": "string", "minLength": 1 },
+        "version": { "type": "string", "minLength": 1 },
+        "published_on": { "$ref": "#/$defs/date" },
+        "frozen": { "type": "boolean" },
+        "based_on_translation_ids": { "type": "array", "items": { "$ref": "#/$defs/id" } },
+        "includes_corrigenda_ids": { "type": "array", "items": { "$ref": "#/$defs/id" } },
+        "snapshot_note": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+
+    "risk_scenario": {
+      "type": "object",
+      "required": ["id", "code", "title", "summary", "clause_ids", "source_course_id"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "code": { "type": "string", "minLength": 1 },
+        "title": { "type": "string", "minLength": 1 },
+        "summary": { "type": "string", "minLength": 1 },
+        "clause_ids": { "type": "array", "items": { "$ref": "#/$defs/id" } },
+        "source_course_id": { "$ref": "#/$defs/id" }
+      },
+      "additionalProperties": false
+    },
+
+    "agency": {
+      "type": "object",
+      "required": ["id", "name", "country_code"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "name": { "type": "string", "minLength": 1 },
+        "country_code": { "$ref": "#/$defs/id" }
+      },
+      "additionalProperties": false
+    },
+
+    "facility": {
+      "type": "object",
+      "description": "现场设施。sensitive=true 时详情仅对本国成员机构与项目办公室开放，跨国视图按国家隔离。",
+      "required": ["id", "label", "country_code", "agency_id", "sensitive", "equipment_limits"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "label": { "type": "string", "minLength": 1 },
+        "country_code": { "$ref": "#/$defs/id" },
+        "agency_id": { "$ref": "#/$defs/id" },
+        "sensitive": { "type": "boolean" },
+        "equipment_limits": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+
+    "gap_refs": {
+      "type": "object",
+      "properties": {
+        "translation_id": { "$ref": "#/$defs/id" },
+        "corrigendum_id": { "$ref": "#/$defs/id" },
+        "national_rule_id": { "$ref": "#/$defs/id" },
+        "course_id": { "$ref": "#/$defs/id" },
+        "risk_scenario_id": { "$ref": "#/$defs/id" },
+        "facility_id": { "$ref": "#/$defs/id" }
+      },
+      "additionalProperties": false
+    },
+
+    "closure": {
+      "type": "object",
+      "required": ["basis", "ref_id", "closed_on", "closed_by"],
+      "properties": {
+        "basis": { "type": "string", "enum": ["rule_update", "drill"] },
+        "ref_id": { "$ref": "#/$defs/id", "description": "rule_update 或 drill 的标识" },
+        "closed_on": { "$ref": "#/$defs/date" },
+        "closed_by": { "$ref": "#/$defs/id" }
+      },
+      "additionalProperties": false
+    },
+
+    "gap": {
+      "type": "object",
+      "required": [
+        "id", "clause_id", "country_code", "agency_id", "kind",
+        "title", "description", "affects_service_consistency",
+        "self_assessed_on", "status"
+      ],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "clause_id": { "$ref": "#/$defs/id" },
+        "country_code": { "$ref": "#/$defs/id" },
+        "agency_id": { "$ref": "#/$defs/id" },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "risk_terminology",
+            "equipment_capability",
+            "response_process",
+            "translation_terminology",
+            "course_material_frozen",
+            "national_rule_delta"
+          ]
+        },
+        "title": { "type": "string", "minLength": 1 },
+        "description": { "type": "string", "minLength": 1 },
+        "affects_service_consistency": { "type": "boolean" },
+        "self_assessed_on": { "$ref": "#/$defs/date" },
+        "status": {
+          "type": "string",
+          "enum": ["open", "in_review", "resolved", "closed"]
+        },
+        "refs": { "$ref": "#/$defs/gap_refs" },
+        "closure": { "$ref": "#/$defs/closure" }
+      },
+      "additionalProperties": false
+    },
+
+    "review": {
+      "type": "object",
+      "description": "同行复核。复核人必须来自差距所属国之外的成员机构。",
+      "required": ["id", "gap_id", "reviewer_agency_id", "reviewer_country_code", "reviewed_on", "outcome", "comment"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "gap_id": { "$ref": "#/$defs/id" },
+        "reviewer_agency_id": { "$ref": "#/$defs/id" },
+        "reviewer_country_code": { "$ref": "#/$defs/id" },
+        "reviewed_on": { "$ref": "#/$defs/date" },
+        "outcome": { "type": "string", "enum": ["confirmed", "changes_requested", "rejected"] },
+        "comment": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+
+    "evidence": {
+      "type": "object",
+      "required": ["id", "gap_id", "kind", "country_code", "uploaded_by", "uploaded_on", "summary"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "gap_id": { "$ref": "#/$defs/id" },
+        "action_id": { "$ref": "#/$defs/id" },
+        "kind": {
+          "type": "string",
+          "enum": ["sop_excerpt", "rule_text", "facility_report", "drill_report", "training_record", "other"]
+        },
+        "country_code": { "$ref": "#/$defs/id" },
+        "restricted": { "type": "boolean", "description": "含敏感设施信息，仅本国可见" },
+        "uploaded_by": { "$ref": "#/$defs/id" },
+        "uploaded_on": { "$ref": "#/$defs/date" },
+        "summary": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+
+    "action": {
+      "type": "object",
+      "required": ["id", "gap_id", "title", "owner_agency_id", "due_on", "status", "requires_drill"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "gap_id": { "$ref": "#/$defs/id" },
+        "title": { "type": "string", "minLength": 1 },
+        "owner_agency_id": { "$ref": "#/$defs/id" },
+        "due_on": { "$ref": "#/$defs/date" },
+        "status": { "type": "string", "enum": ["planned", "in_progress", "completed", "cancelled"] },
+        "requires_drill": { "type": "boolean" },
+        "completed_on": { "$ref": "#/$defs/date" }
+      },
+      "additionalProperties": false
+    },
+
+    "action_extension": {
+      "type": "object",
+      "description": "行动延期必须留痕：批准人、理由，且新期限严格晚于原期限。",
+      "required": ["id", "action_id", "previous_due_on", "new_due_on", "approver", "reason", "approved_on"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "action_id": { "$ref": "#/$defs/id" },
+        "previous_due_on": { "$ref": "#/$defs/date" },
+        "new_due_on": { "$ref": "#/$defs/date" },
+        "approver": { "type": "string", "minLength": 1 },
+        "reason": { "type": "string", "minLength": 1 },
+        "approved_on": { "$ref": "#/$defs/date" }
+      },
+      "additionalProperties": false
+    },
+
+    "exemption": {
+      "type": "object",
+      "description": "现场豁免必须有批准人与到期日；到期自动失效，且豁免不能作为关闭差距的依据。",
+      "required": ["id", "gap_id", "scope", "reason", "approver_name", "approver_role", "approved_on", "expiry_on"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "gap_id": { "$ref": "#/$defs/id" },
+        "scope": { "type": "string", "minLength": 1 },
+        "reason": { "type": "string", "minLength": 1 },
+        "approver_name": { "type": "string", "minLength": 1 },
+        "approver_role": { "type": "string", "minLength": 1 },
+        "approved_on": { "$ref": "#/$defs/date" },
+        "expiry_on": { "$ref": "#/$defs/date" },
+        "revoked_on": { "$ref": "#/$defs/date" }
+      },
+      "additionalProperties": false
+    },
+
+    "drill": {
+      "type": "object",
+      "description": "实际演练记录。只有 result=passed 且演练日期不早于行动完成日期，才能作为差距关闭依据。",
+      "required": ["id", "gap_id", "action_id", "scenario_id", "exercised_on", "result", "verified_by", "summary"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "gap_id": { "$ref": "#/$defs/id" },
+        "action_id": { "$ref": "#/$defs/id" },
+        "scenario_id": { "$ref": "#/$defs/id" },
+        "exercised_on": { "$ref": "#/$defs/date" },
+        "result": { "type": "string", "enum": ["passed", "partial", "failed"] },
+        "verified_by": { "$ref": "#/$defs/id", "description": "复核机构标识" },
+        "summary": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+
+    "rule_update": {
+      "type": "object",
+      "description": "国家规则更新。closes_gap_ids 只允许列入确已解决（同国、证据齐备、同行复核确认）的差距，其余差距保持打开。",
+      "required": ["id", "country_code", "national_rule_id", "title", "effective_on", "published_on", "closes_gap_ids"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "country_code": { "$ref": "#/$defs/id" },
+        "national_rule_id": { "$ref": "#/$defs/id" },
+        "title": { "type": "string", "minLength": 1 },
+        "effective_on": { "$ref": "#/$defs/date" },
+        "published_on": { "$ref": "#/$defs/date" },
+        "closes_gap_ids": { "type": "array", "items": { "$ref": "#/$defs/id" } },
+        "note": { "type": "string" }
+      },
+      "additionalProperties": false
+    }
+  }
 }

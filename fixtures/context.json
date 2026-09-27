@@ -1,42 +1,695 @@
 {
   "domain": "navigation-standard-gap",
-  "version": 1,
+  "version": 2,
   "sample_id": "public-sample-007",
+  "as_of": "2026-09-27",
   "actors": [
     "学员",
     "授课专家",
     "主办机构",
-    "成员国主管部门"
+    "成员国主管部门",
+    "联合项目办公室"
   ],
   "facts": [
     "培训由交通运输部海事局与国际航标组织联合主办",
     "项目新增风险管理专项培训",
-    "历史学员来自四十多个国家和地区"
+    "历史学员来自四十多个国家和地区",
+    "联合项目办公室维护国际条款与各成员机构实施情况的逐项对应差距库",
+    "证书数量不作为标准落地的判定依据，差距以条款级证据与复核结论为准"
   ],
   "constraints": [
-    "国际条款映射",
-    "本国实施自评",
-    "同行复核",
-    "改进行动验证"
+    "国际条款映射：条款原文、官方译文与勘误、本国规范逐项对应",
+    "译文勘误只追加不回溯，已冻结旧版培训资料不改写",
+    "国家规则更新只关闭确已解决的差距",
+    "现场豁免必须有批准人与到期日，到期失效且不得用于关闭差距",
+    "成员机构自评后须由异国民用航标主管机构同行复核",
+    "证据可持续补充，含敏感设施信息的证据按国家隔离",
+    "改进行动延期须记录批准人、理由与更晚的新期限",
+    "需演练验证的改进未通过实际演练前不得关闭差距",
+    "管理者按条款查看仍影响服务一致性的差距"
   ],
-  "records": [
+  "imports": [
     {
-      "id": "navigation-standard-gap-source",
-      "kind": "source",
-      "label": "培训由交通运输部海事局与国际航标组织联合主办",
-      "status": "active"
+      "id": "IMP-2026-001",
+      "imported_on": "2026-09-20",
+      "source": "联合培训项目已有课程与风险场景库（虚构样例导入）",
+      "course_ids": ["CR-RISK-2024", "CR-RISK-2026", "CR-EQ-2025"],
+      "scenario_ids": ["RS-001", "RS-002", "RS-003"],
+      "note": "首批导入；历史课程按发布时快照冻结保存"
+    }
+  ],
+  "standards_clauses": [
+    {
+      "id": "C-3101",
+      "standard": "IALA-R-0101（虚构编号）",
+      "number": "3.1.1",
+      "title": "风险等级术语",
+      "text_summary": "导助航服务应使用统一的风险等级名称与释义，区分低、较高、高三级并配套判定口径。",
+      "consistency_aspect": "risk_terminology",
+      "status": "current"
     },
     {
-      "id": "navigation-standard-gap-review",
-      "kind": "review",
-      "label": "国际条款映射",
-      "status": "pending"
+      "id": "C-3102",
+      "standard": "IALA-R-0101（虚构编号）",
+      "number": "3.1.2",
+      "title": "风险沟通用语",
+      "text_summary": "对外发布航行警告时应使用标准风险沟通用语，避免自行创设含义不明的措辞。",
+      "consistency_aspect": "risk_terminology",
+      "status": "current"
     },
     {
-      "id": "navigation-standard-gap-history",
-      "kind": "history",
-      "label": "历史学员来自四十多个国家和地区",
-      "status": "historical"
+      "id": "C-4210",
+      "standard": "IALA-R-0101（虚构编号）",
+      "number": "4.2.10",
+      "title": "虚拟航标发射与监控",
+      "text_summary": "虚拟AIS航标发射功率与位置校核周期应满足建议下限，监控周期不超过5分钟。",
+      "consistency_aspect": "equipment_capability",
+      "status": "current"
+    },
+    {
+      "id": "C-4330",
+      "standard": "IALA-R-0101（虚构编号）",
+      "number": "4.3.30",
+      "title": "航标站备用电源续航",
+      "text_summary": "关键航标站备用电源在主供水中断后应至少维持72小时连续工作。",
+      "consistency_aspect": "equipment_capability",
+      "status": "current"
+    },
+    {
+      "id": "C-5200",
+      "standard": "IALA-R-0101（虚构编号）",
+      "number": "5.2.0",
+      "title": "灯浮漂移处置流程",
+      "text_summary": "发现灯浮漂移后应在4小时内完成现场核实并上报，按统一流程发布临时警告并组织复位。",
+      "consistency_aspect": "response_process",
+      "status": "current"
+    },
+    {
+      "id": "C-5310",
+      "standard": "IALA-R-0101（虚构编号）",
+      "number": "5.3.10",
+      "title": "能见度不良应急联动",
+      "text_summary": "能见度低于阈值时，航标、VTS与搜救值班单位应按联动流程在规定时限内互换信息。",
+      "consistency_aspect": "response_process",
+      "status": "current"
+    }
+  ],
+  "translations": [
+    {
+      "id": "T-3101-v1",
+      "clause_id": "C-3101",
+      "language": "zh-CN",
+      "version": 1,
+      "published_on": "2023-02-01",
+      "text": "风险等级分为低、显著、高三级。（旧版译文，术语已被勘误）",
+      "status": "superseded"
+    },
+    {
+      "id": "T-3101-v2",
+      "clause_id": "C-3101",
+      "language": "zh-CN",
+      "version": 2,
+      "published_on": "2025-11-10",
+      "text": "风险等级分为低、较高、高三级，并附判定口径。",
+      "status": "current"
+    },
+    {
+      "id": "T-3102-v1",
+      "clause_id": "C-3102",
+      "language": "zh-CN",
+      "version": 1,
+      "published_on": "2025-11-10",
+      "text": "航行警告应使用标准风险沟通用语。",
+      "status": "current"
+    },
+    {
+      "id": "T-4210-v1",
+      "clause_id": "C-4210",
+      "language": "zh-CN",
+      "version": 1,
+      "published_on": "2024-05-01",
+      "text": "虚拟AIS航标监控周期不超过5分钟。",
+      "status": "current"
+    },
+    {
+      "id": "T-4330-v1",
+      "clause_id": "C-4330",
+      "language": "zh-CN",
+      "version": 1,
+      "published_on": "2024-05-01",
+      "text": "关键航标站备用电源应至少维持72小时。",
+      "status": "current"
+    },
+    {
+      "id": "T-5200-v1",
+      "clause_id": "C-5200",
+      "language": "zh-CN",
+      "version": 1,
+      "published_on": "2024-05-01",
+      "text": "发现灯浮漂移后应在4小时内上报。（初版译文，时限义务范围已被勘误补全）",
+      "status": "current"
+    },
+    {
+      "id": "T-5310-v1",
+      "clause_id": "C-5310",
+      "language": "zh-CN",
+      "version": 1,
+      "published_on": "2024-05-01",
+      "text": "能见度低于阈值时相关单位应及时联动互换信息。",
+      "status": "current"
+    }
+  ],
+  "translation_corrigenda": [
+    {
+      "id": "ER-001",
+      "translation_id": "T-3101-v1",
+      "published_on": "2025-11-10",
+      "severity": "terminology",
+      "original_reading": "显著风险",
+      "corrected_reading": "较高风险",
+      "note": "与国际统一风险分级对齐；旧版冻结课程不回溯改写，由新版课程纳入。"
+    },
+    {
+      "id": "ER-002",
+      "translation_id": "T-5200-v1",
+      "published_on": "2026-03-15",
+      "severity": "meaning",
+      "original_reading": "4小时内上报",
+      "corrected_reading": "4小时内完成现场核实并上报",
+      "note": "补全时限义务包含现场核实，仅发布勘误，已发课程资料保持原样。"
+    }
+  ],
+  "national_rules": [
+    {
+      "id": "NR-CN-01",
+      "country_code": "CN",
+      "title": "海上交通安全管理实施细则（虚构）",
+      "clause_ids": ["C-5200", "C-5310"],
+      "effective_on": "2022-07-01",
+      "status": "in_force"
+    },
+    {
+      "id": "NR-CN-02",
+      "country_code": "CN",
+      "title": "导助航风险术语应用通知（虚构）",
+      "clause_ids": ["C-3101", "C-3102"],
+      "effective_on": "2026-01-01",
+      "status": "in_force",
+      "note": "采用较高风险等标准译名，但不改变已结业课程资料。"
+    },
+    {
+      "id": "NR-MY-01",
+      "country_code": "MY",
+      "title": "Malaysian AtoN Response Directive (fictional)",
+      "clause_ids": ["C-5200"],
+      "effective_on": "2026-04-01",
+      "status": "in_force"
+    },
+    {
+      "id": "NR-EG-01",
+      "country_code": "EG",
+      "title": "Red Sea Aids to Navigation Equipment Order (fictional)",
+      "clause_ids": ["C-4210"],
+      "effective_on": "2023-10-01",
+      "status": "in_force"
+    }
+  ],
+  "courses": [
+    {
+      "id": "CR-RISK-2024",
+      "code": "RISK-201",
+      "title": "导助航风险管理专项培训（2024班）",
+      "version": "2024.1",
+      "published_on": "2024-09-01",
+      "frozen": true,
+      "based_on_translation_ids": ["T-3101-v1"],
+      "snapshot_note": "按发布时译文快照冻结，仍使用‘显著风险’旧术语，勘误不回溯。"
+    },
+    {
+      "id": "CR-RISK-2026",
+      "code": "RISK-201",
+      "title": "导助航风险管理专项培训（2026班）",
+      "version": "2026.1",
+      "published_on": "2026-02-01",
+      "frozen": true,
+      "based_on_translation_ids": ["T-3101-v2", "T-3102-v1"],
+      "includes_corrigenda_ids": ["ER-001"]
+    },
+    {
+      "id": "CR-EQ-2025",
+      "code": "EQP-110",
+      "title": "航标设备与应急流程课程（2025版）",
+      "version": "2025.2",
+      "published_on": "2025-06-01",
+      "frozen": true,
+      "based_on_translation_ids": ["T-4210-v1", "T-4330-v1", "T-5200-v1", "T-5310-v1"],
+      "snapshot_note": "早于 ER-002 发布，灯浮漂移章节只写‘4小时内上报’。"
+    }
+  ],
+  "risk_scenarios": [
+    {
+      "id": "RS-001",
+      "code": "RS-FOG-DRIFT",
+      "title": "浓雾期间灯浮漂移",
+      "summary": "能见度不足200米时某进口灯浮漂移，需在4小时内完成核实、警告发布与联动。",
+      "clause_ids": ["C-5200", "C-5310"],
+      "source_course_id": "CR-RISK-2024"
+    },
+    {
+      "id": "RS-002",
+      "code": "RS-AIS-LOST",
+      "title": "虚拟AIS航标信号丢失",
+      "summary": "虚拟航标信号中断且监控周期超标，需评估设备能力并启动应急标识。",
+      "clause_ids": ["C-4210"],
+      "source_course_id": "CR-EQ-2025"
+    },
+    {
+      "id": "RS-003",
+      "code": "RS-POWER-OUT",
+      "title": "关键航标站主供水中断",
+      "summary": "主供水中断后依靠备用电源，检验续航能否达到72小时并完成补给。",
+      "clause_ids": ["C-4330"],
+      "source_course_id": "CR-EQ-2025"
+    }
+  ],
+  "agencies": [
+    { "id": "CN-MSA-DH", "name": "东海航海保障中心（虚构样例机构）", "country_code": "CN" },
+    { "id": "MY-MARITIME", "name": "Peninsular AtoN Authority (fictional)", "country_code": "MY" },
+    { "id": "EG-RSA", "name": "Red Sea AtoN Service (fictional)", "country_code": "EG" },
+    { "id": "JPO", "name": "联合项目办公室", "country_code": "XN" }
+  ],
+  "facilities": [
+    {
+      "id": "F-CN-001",
+      "label": "长江口某航标站（敏感，详情虚构）",
+      "country_code": "CN",
+      "agency_id": "CN-MSA-DH",
+      "sensitive": true,
+      "equipment_limits": [
+        "虚拟AIS发射功率低于条款建议下限",
+        "备用电源续航约24小时，低于72小时要求"
+      ]
+    },
+    {
+      "id": "F-MY-001",
+      "label": "马六甲海峡某航标站（虚构）",
+      "country_code": "MY",
+      "agency_id": "MY-MARITIME",
+      "sensitive": false,
+      "equipment_limits": ["备用电源续航约48小时，低于72小时要求"]
+    },
+    {
+      "id": "F-EG-001",
+      "label": "红海某敏感航标站（详情虚构）",
+      "country_code": "EG",
+      "agency_id": "EG-RSA",
+      "sensitive": true,
+      "equipment_limits": [
+        "虚拟AIS位置校核周期约12分钟，超过5分钟上限",
+        "监控链路在沙尘暴期间中断无冗余"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "id": "G-CN-001",
+      "clause_id": "C-3101",
+      "country_code": "CN",
+      "agency_id": "CN-MSA-DH",
+      "kind": "course_material_frozen",
+      "title": "2024冻结课程仍讲授‘显著风险’旧术语",
+      "description": "ER-001 已将术语勘误为‘较高风险’，但 CR-RISK-2024 为冻结快照，在岗轮训仍沿用旧讲义，现场风险通报用语不一致。",
+      "affects_service_consistency": true,
+      "self_assessed_on": "2026-05-12",
+      "status": "open",
+      "refs": {
+        "translation_id": "T-3101-v1",
+        "corrigendum_id": "ER-001",
+        "course_id": "CR-RISK-2024"
+      }
+    },
+    {
+      "id": "G-CN-002",
+      "clause_id": "C-4330",
+      "country_code": "CN",
+      "agency_id": "CN-MSA-DH",
+      "kind": "equipment_capability",
+      "title": "关键航标站备用电源续航不足且已通过演练整改",
+      "description": "F-CN-001 备用电源续航约24小时。已加装电池组并完成72小时连续供电演练，由外方同行复核确认。",
+      "affects_service_consistency": false,
+      "self_assessed_on": "2026-03-02",
+      "status": "closed",
+      "refs": { "facility_id": "F-CN-001" },
+      "closure": {
+        "basis": "drill",
+        "ref_id": "D-001",
+        "closed_on": "2026-05-21",
+        "closed_by": "JPO"
+      }
+    },
+    {
+      "id": "G-CN-003",
+      "clause_id": "C-5310",
+      "country_code": "CN",
+      "agency_id": "CN-MSA-DH",
+      "kind": "response_process",
+      "title": "能见度不良联动时限未通过实际演练",
+      "description": "新联动SOP已发布、行动标记完成、同行复核确认，但首次桌面与实操结合演练结果为部分通过，信息互换超时，差距不得关闭。",
+      "affects_service_consistency": true,
+      "self_assessed_on": "2026-04-18",
+      "status": "open",
+      "refs": { "national_rule_id": "NR-CN-01", "risk_scenario_id": "RS-001" }
+    },
+    {
+      "id": "G-CN-004",
+      "clause_id": "C-4210",
+      "country_code": "CN",
+      "agency_id": "CN-MSA-DH",
+      "kind": "equipment_capability",
+      "title": "敏感站点虚拟AIS发射功率低于建议下限",
+      "description": "F-CN-001 发射功率偏低，更新设备采购周期较长；当前持有限期现场豁免，到期前完成设备更新。",
+      "affects_service_consistency": true,
+      "self_assessed_on": "2026-05-20",
+      "status": "open",
+      "refs": { "facility_id": "F-CN-001" }
+    },
+    {
+      "id": "G-MY-001",
+      "clause_id": "C-5200",
+      "country_code": "MY",
+      "agency_id": "MY-MARITIME",
+      "kind": "response_process",
+      "title": "灯浮漂移处置时限流程与条款不一致（已随国家规则更新解决）",
+      "description": "原内部流程只要求4小时内上报，未含现场核实。NR-MY-01 生效后流程已修订为4小时内完成核实并上报，证据齐备且经埃及同行复核确认。",
+      "affects_service_consistency": false,
+      "self_assessed_on": "2026-02-10",
+      "status": "closed",
+      "refs": { "national_rule_id": "NR-MY-01", "risk_scenario_id": "RS-001" },
+      "closure": {
+        "basis": "rule_update",
+        "ref_id": "RU-MY-001",
+        "closed_on": "2026-04-05",
+        "closed_by": "JPO"
+      }
+    },
+    {
+      "id": "G-MY-002",
+      "clause_id": "C-5200",
+      "country_code": "MY",
+      "agency_id": "MY-MARITIME",
+      "kind": "course_material_frozen",
+      "title": "2025设备课程未纳入 ER-002 时限勘误",
+      "description": "CR-EQ-2025 早于 ER-002 发布，教材只要求4小时内上报；学员据此执行会漏掉现场核实环节。",
+      "affects_service_consistency": true,
+      "self_assessed_on": "2026-04-22",
+      "status": "open",
+      "refs": {
+        "translation_id": "T-5200-v1",
+        "corrigendum_id": "ER-002",
+        "course_id": "CR-EQ-2025"
+      }
+    },
+    {
+      "id": "G-EG-001",
+      "clause_id": "C-4210",
+      "country_code": "EG",
+      "agency_id": "EG-RSA",
+      "kind": "equipment_capability",
+      "title": "敏感站点AIS校核周期超标",
+      "description": "F-EG-001 校核周期约12分钟。中方同行复核要求补充整改方案；改进行动已批准一次延期至2026年底。",
+      "affects_service_consistency": true,
+      "self_assessed_on": "2026-03-15",
+      "status": "in_review",
+      "refs": { "facility_id": "F-EG-001", "national_rule_id": "NR-EG-01", "risk_scenario_id": "RS-002" }
+    },
+    {
+      "id": "G-EG-002",
+      "clause_id": "C-5200",
+      "country_code": "EG",
+      "agency_id": "EG-RSA",
+      "kind": "response_process",
+      "title": "灯浮漂移现场核实缺位且豁免已过期",
+      "description": "现场以巡逻船调度困难为由持有豁免，但豁免已于2026-08-31到期，未获续批；整改行动已逾期。",
+      "affects_service_consistency": true,
+      "self_assessed_on": "2026-02-20",
+      "status": "open"
+    },
+    {
+      "id": "G-EG-003",
+      "clause_id": "C-3102",
+      "country_code": "EG",
+      "agency_id": "EG-RSA",
+      "kind": "risk_terminology",
+      "title": "对外警告使用自创风险措辞",
+      "description": "自评发现航行警告中混用本地措辞与标准用语，尚未提交同行复核。",
+      "affects_service_consistency": true,
+      "self_assessed_on": "2026-08-28",
+      "status": "open"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "RV-001",
+      "gap_id": "G-MY-001",
+      "reviewer_agency_id": "EG-RSA",
+      "reviewer_country_code": "EG",
+      "reviewed_on": "2026-03-25",
+      "outcome": "confirmed",
+      "comment": "修订后流程文本与条款时限义务一致，规则文本证据充分。"
+    },
+    {
+      "id": "RV-002",
+      "gap_id": "G-EG-001",
+      "reviewer_agency_id": "CN-MSA-DH",
+      "reviewer_country_code": "CN",
+      "reviewed_on": "2026-06-10",
+      "outcome": "changes_requested",
+      "comment": "请补充链路冗余方案与阶段性监控周期指标，再行复核。"
+    },
+    {
+      "id": "RV-003",
+      "gap_id": "G-CN-003",
+      "reviewer_agency_id": "MY-MARITIME",
+      "reviewer_country_code": "MY",
+      "reviewed_on": "2026-07-30",
+      "outcome": "confirmed",
+      "comment": "SOP与条款一致，但服务一致性应以实际演练通过为准。"
+    },
+    {
+      "id": "RV-004",
+      "gap_id": "G-CN-002",
+      "reviewer_agency_id": "MY-MARITIME",
+      "reviewer_country_code": "MY",
+      "reviewed_on": "2026-05-18",
+      "outcome": "confirmed",
+      "comment": "电池改造记录与72小时演练数据可信，同意关闭。"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "EV-001",
+      "gap_id": "G-MY-001",
+      "kind": "rule_text",
+      "country_code": "MY",
+      "restricted": false,
+      "uploaded_by": "MY-MARITIME",
+      "uploaded_on": "2026-04-02",
+      "summary": "NR-MY-01 生效令与修订后处置流程对照页。"
+    },
+    {
+      "id": "EV-002",
+      "gap_id": "G-CN-002",
+      "kind": "facility_report",
+      "country_code": "CN",
+      "restricted": true,
+      "uploaded_by": "CN-MSA-DH",
+      "uploaded_on": "2026-05-16",
+      "summary": "F-CN-001 电池组安装与连续供电测试曲线（含站点明细，限本国）。"
+    },
+    {
+      "id": "EV-003",
+      "gap_id": "G-CN-003",
+      "kind": "sop_excerpt",
+      "country_code": "CN",
+      "restricted": false,
+      "uploaded_by": "CN-MSA-DH",
+      "uploaded_on": "2026-07-05",
+      "summary": "能见度不良联动SOP时限页与值班排班摘录。"
+    },
+    {
+      "id": "EV-004",
+      "gap_id": "G-EG-001",
+      "kind": "facility_report",
+      "country_code": "EG",
+      "restricted": true,
+      "uploaded_by": "EG-RSA",
+      "uploaded_on": "2026-05-30",
+      "summary": "F-EG-001 链路测量报告（含精确位置与频率，限本国）。"
+    },
+    {
+      "id": "EV-005",
+      "gap_id": "G-EG-002",
+      "kind": "facility_report",
+      "country_code": "EG",
+      "restricted": true,
+      "uploaded_by": "EG-RSA",
+      "uploaded_on": "2026-03-01",
+      "summary": "巡逻船调度与豁免申请背景说明（限本国）。"
+    },
+    {
+      "id": "EV-006",
+      "gap_id": "G-CN-001",
+      "kind": "training_record",
+      "country_code": "CN",
+      "restricted": false,
+      "uploaded_by": "CN-MSA-DH",
+      "uploaded_on": "2026-05-12",
+      "summary": "2026年在岗轮训仍发放 CR-RISK-2024 讲义的领用记录摘录。"
+    }
+  ],
+  "actions": [
+    {
+      "id": "A-001",
+      "gap_id": "G-CN-002",
+      "title": "加装电池组并完成72小时续航验证",
+      "owner_agency_id": "CN-MSA-DH",
+      "due_on": "2026-05-10",
+      "status": "completed",
+      "requires_drill": true,
+      "completed_on": "2026-05-01"
+    },
+    {
+      "id": "A-002",
+      "gap_id": "G-CN-003",
+      "title": "修订联动SOP并组织实操演练",
+      "owner_agency_id": "CN-MSA-DH",
+      "due_on": "2026-08-01",
+      "status": "completed",
+      "requires_drill": true,
+      "completed_on": "2026-07-10"
+    },
+    {
+      "id": "A-003",
+      "gap_id": "G-CN-004",
+      "title": "更新敏感站点AIS发射设备",
+      "owner_agency_id": "CN-MSA-DH",
+      "due_on": "2027-03-31",
+      "status": "planned",
+      "requires_drill": false
+    },
+    {
+      "id": "A-004",
+      "gap_id": "G-MY-001",
+      "title": "修订灯浮漂移处置流程并发布",
+      "owner_agency_id": "MY-MARITIME",
+      "due_on": "2026-03-31",
+      "status": "completed",
+      "requires_drill": false,
+      "completed_on": "2026-03-20"
+    },
+    {
+      "id": "A-005",
+      "gap_id": "G-MY-002",
+      "title": "制作 ER-002 勘误增补页并安排补训",
+      "owner_agency_id": "MY-MARITIME",
+      "due_on": "2027-01-31",
+      "status": "planned",
+      "requires_drill": false
+    },
+    {
+      "id": "A-006",
+      "gap_id": "G-EG-001",
+      "title": "升级AIS校核链路并增设冗余",
+      "owner_agency_id": "EG-RSA",
+      "due_on": "2026-12-31",
+      "status": "in_progress",
+      "requires_drill": true
+    },
+    {
+      "id": "A-007",
+      "gap_id": "G-EG-002",
+      "title": "建立4小时现场核实值班调度机制",
+      "owner_agency_id": "EG-RSA",
+      "due_on": "2026-06-30",
+      "status": "in_progress",
+      "requires_drill": true
+    }
+  ],
+  "action_extensions": [
+    {
+      "id": "AX-001",
+      "action_id": "A-006",
+      "previous_due_on": "2026-08-31",
+      "new_due_on": "2026-12-31",
+      "approver": "联合项目办公室主任 林洲（虚构）",
+      "reason": "冗余链路设备国际采购周期延长，已提交阶段性进度与里程碑。",
+      "approved_on": "2026-08-25"
+    }
+  ],
+  "exemptions": [
+    {
+      "id": "EX-001",
+      "gap_id": "G-CN-004",
+      "scope": "F-CN-001 虚拟AIS发射功率下限",
+      "reason": "设备更新已立项采购，过渡期以加强人工校核补偿。",
+      "approver_name": "张远航（虚构）",
+      "approver_role": "东海航海保障中心主任",
+      "approved_on": "2026-06-01",
+      "expiry_on": "2026-12-31"
+    },
+    {
+      "id": "EX-002",
+      "gap_id": "G-EG-002",
+      "scope": "灯浮漂移4小时现场核实",
+      "reason": "巡逻船调度紧张，临时豁免。",
+      "approver_name": "Omar Saleh (fictional)",
+      "approver_role": "Red Sea AtoN Service Director",
+      "approved_on": "2026-03-01",
+      "expiry_on": "2026-08-31"
+    }
+  ],
+  "drills": [
+    {
+      "id": "D-001",
+      "gap_id": "G-CN-002",
+      "action_id": "A-001",
+      "scenario_id": "RS-003",
+      "exercised_on": "2026-05-20",
+      "result": "passed",
+      "verified_by": "MY-MARITIME",
+      "summary": "主供水中断后连续供电75小时，设备工作正常，外方观察员现场确认。"
+    },
+    {
+      "id": "D-002",
+      "gap_id": "G-CN-003",
+      "action_id": "A-002",
+      "scenario_id": "RS-001",
+      "exercised_on": "2026-08-10",
+      "result": "partial",
+      "verified_by": "EG-RSA",
+      "summary": "联动信息互换平均超时约8分钟，需重排值班链路后再次演练。"
+    }
+  ],
+  "rule_updates": [
+    {
+      "id": "RU-MY-001",
+      "country_code": "MY",
+      "national_rule_id": "NR-MY-01",
+      "title": "灯浮漂移处置指令2026年修订生效",
+      "effective_on": "2026-04-01",
+      "published_on": "2026-03-28",
+      "closes_gap_ids": ["G-MY-001"],
+      "note": "仅关闭证据齐备、同行复核确认且同属马来西亚的差距。"
+    },
+    {
+      "id": "RU-CN-001",
+      "country_code": "CN",
+      "national_rule_id": "NR-CN-02",
+      "title": "风险术语应用通知生效",
+      "effective_on": "2026-01-01",
+      "published_on": "2025-12-20",
+      "closes_gap_ids": [],
+      "note": "规则层面已采用标准译名，但冻结课程与现场用语差距仍在，不关闭 G-CN-001。"
     }
   ]
 }
